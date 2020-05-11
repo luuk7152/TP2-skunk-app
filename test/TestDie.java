@@ -1,8 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,8 @@ public class TestDie {
 	
 	private Die die;
 	
-	int[] validValues = {1,2,3,4,5,6};
+	List<Integer> validValues = Arrays.asList(1,2,3,4,5,6);
+
 
 	
 	@BeforeEach
@@ -25,8 +25,7 @@ public class TestDie {
 		die.roll();
 		int roll = die.getLastRoll();
 		
-		Arrays.asList(validValues).contains(roll);
-
+		assertTrue(validValues.contains(roll));	
 	}
 	
 	@Test
@@ -39,12 +38,12 @@ public class TestDie {
 			die.roll();
 			int roll = die.getLastRoll();
 			
-			Arrays.asList(validValues).contains(roll);			
+			assertTrue(validValues.contains(roll));
         }
 	}
 	
 	@Test
-	public void test_display_class_toString_message() 
+	public void test_display_die_toString() 
 	{
 		die.roll();
 		int roll = die.getLastRoll();
