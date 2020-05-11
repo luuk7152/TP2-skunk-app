@@ -1,11 +1,18 @@
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TestDie {
 	
 	private Die die;
+	
+	int[] validValues = {1,2,3,4,5,6};
+
 	
 	@BeforeEach
     public void setup() {
@@ -17,8 +24,11 @@ public class TestDie {
 	{
 		die.roll();
 		int roll = die.getLastRoll();
-	}
+		
+		Arrays.asList(validValues).contains(roll);
 
+	}
+	
 	@Test
 	public void test_generate_random_number_between_1_and_6()
 	{
@@ -29,8 +39,7 @@ public class TestDie {
 			die.roll();
 			int roll = die.getLastRoll();
 			
-			assertTrue(roll >= 1 && roll <= 6);
-			
+			Arrays.asList(validValues).contains(roll);			
         }
 	}
 	
