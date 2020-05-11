@@ -30,9 +30,7 @@ public class TestDie {
 	
 	@Test
 	public void test_generate_random_number_between_1_and_6()
-	{
-		Die die = new Die();
-		
+	{	
 		for (int i = 1; i < 100000; i++) {
 			
 			die.roll();
