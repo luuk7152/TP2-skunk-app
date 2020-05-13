@@ -74,4 +74,41 @@ class TestRoll {
 		assertEquals(roll.getPenalty(), 2);
 		
 	}
+	
+	//Test Roll Booleans
+	
+	@Test
+	void test_Is_Single_Skunk()
+	{
+		Die die1 = new CrookedDie1(); //forces a roll of 1
+		Die die2 = new CrookedDie3(); //forces a roll of 3
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);
+		
+		assertTrue(roll.isSingleSkunk());
+	}
+	
+	@Test
+	void test_Is_Double_Skunk()
+	{
+		Die die1 = new CrookedDie1(); //forces a roll of 1
+		Die die2 = new CrookedDie1(); //forces a roll of 1
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);
+		
+		assertTrue(roll.isDoubleSkunk());
+		
+	}
+	
+	@Test
+	void test_Is_Skunk_Deuce()
+	{
+		Die die1 = new CrookedDie1(); //forces a roll of 1
+		Die die2 = new CrookedDie2(); //forces a roll of 2
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);
+		
+		assertTrue(roll.isDeuceSkunk());
+		
+	}
 }

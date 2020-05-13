@@ -30,7 +30,23 @@ public class Roll {
 	
 	public int getPenalty()
 	{		
-		return 0;	
+
+		return 0;		
 	}
 	
+	//Skunk Conditions
+	public Boolean isSingleSkunk() 
+	{
+		return null;
+	}
+	
+	public Boolean isDoubleSkunk() 
+	{
+		return null;
+	}
+	
+	public Boolean isDeuceSkunk() 
+	{
+		return null;
+	}
 }
