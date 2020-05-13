@@ -23,4 +23,9 @@ public class Roll {
 		return dice;
 	}
 	
+	public int getScore()
+	{
+		return 0;
+	}
+	
 }

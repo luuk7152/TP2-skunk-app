@@ -28,5 +28,14 @@ class TestRoll {
 		assertEquals(roll.getDice().getDie1Roll(), 1);
 	}
 	
-	
+	@Test
+	void test_Get_Score()
+	{
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie1();
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);
+		
+		assertEquals(roll.getScore(), 2);
+	}
 }

@@ -8,13 +8,13 @@ public class CrookedDie3 extends Die
 	@Override
 	public int getLastRoll()
 	{
-		return 0;
+		return 3;
 	}
 
 	@Override
 	public String toString()
 	{
-		return null;
+		return "A CrookedDie3 always rolling 3";
 	}
 
 }
