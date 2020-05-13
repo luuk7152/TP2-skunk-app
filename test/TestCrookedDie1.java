@@ -16,4 +16,10 @@ public class TestCrookedDie1 {
 		
 	}
 	
+	@Test
+	void test_To_String_Cr_Die1()
+	{
+		crDie = new CrookedDie1();
+		assertEquals(crDie.toString(), "A CrookedDie1 always rolling 1 (a skunk)");
+	}
 }
