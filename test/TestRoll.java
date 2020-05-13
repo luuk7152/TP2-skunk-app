@@ -15,6 +15,6 @@ class TestRoll {
 	@Test
 	void test_Roll_Constructor()
 	{
-		
+		assertEquals(roll.getClass().getName(), "Roll");
 	}
 }
