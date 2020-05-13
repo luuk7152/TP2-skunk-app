@@ -38,4 +38,40 @@ class TestRoll {
 		
 		assertEquals(roll.getScore(), 2);
 	}
+	
+	@Test
+	void test_Single_Skunk_Outcome()
+	{
+		Die die1 = new CrookedDie1(); //forces a roll of 1
+		Die die2 = new CrookedDie3(); //forces a roll of 3
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);
+		
+		assertEquals(roll.getPenalty(), 1);
+		
+	}
+	
+	@Test
+	void test_Double_Skunk_Outcome()
+	{
+		Die die1 = new CrookedDie1(); //forces a roll of 1
+		Die die2 = new CrookedDie1(); //forces a roll of 1
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);
+		
+		assertEquals(roll.getPenalty(), 4);
+		
+	}
+	
+	@Test
+	void test_Skunk_Deuce_Outcome()
+	{
+		Die die1 = new CrookedDie1(); //forces a roll of 1
+		Die die2 = new CrookedDie2(); //forces a roll of 2
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);
+		
+		assertEquals(roll.getPenalty(), 2);
+		
+	}
 }

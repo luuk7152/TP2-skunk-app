@@ -28,4 +28,9 @@ public class Roll {
 		return score;
 	}
 	
+	public int getPenalty()
+	{		
+		return 0;	
+	}
+	
 }
