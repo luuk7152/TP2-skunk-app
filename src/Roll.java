@@ -59,6 +59,16 @@ public class Roll {
 	
 	public String toString() 
 	{
-		return null;
+		String outcome = Integer.toString(this.score);
+		
+		if (isDoubleSkunk()) {
+			outcome = "Double Skunk";
+		} else if (isDeuceSkunk()) {
+			outcome = "Deuce Skunk";
+		} else if (isSingleSkunk()) {
+			outcome = "Single Skunk";
+		}
+		
+		return "You rolled a " + outcome + " => " + dice.getDie1Roll() + " and " + dice.getDie2Roll() + ".";
 	}
 }
