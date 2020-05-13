@@ -56,4 +56,9 @@ public class Roll {
 	{
 		return dice.getDie1Roll() == 1 || dice.getDie2Roll() == 1;
 	}
+	
+	public String toString() 
+	{
+		return null;
+	}
 }
