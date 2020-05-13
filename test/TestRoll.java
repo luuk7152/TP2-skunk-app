@@ -27,4 +27,6 @@ class TestRoll {
 		roll = new Roll(dice);
 		assertEquals(roll.getDice().getDie1Roll(), 1);
 	}
+	
+	
 }
