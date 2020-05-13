@@ -30,23 +30,30 @@ public class Roll {
 	
 	public int getPenalty()
 	{		
-
-		return 0;		
+		if (isDoubleSkunk()) {
+			return 4;
+		} else if (isDeuceSkunk()) {
+			return 2;
+		} else if (isSingleSkunk()) {
+			return 1;
+		}
+		
+		return 0;			
 	}
 	
 	//Skunk Conditions
-	public Boolean isSingleSkunk() 
-	{
-		return null;
-	}
-	
 	public Boolean isDoubleSkunk() 
 	{
-		return null;
+		return dice.getDie1Roll() == 1 && dice.getDie2Roll() == 1;
 	}
 	
 	public Boolean isDeuceSkunk() 
 	{
-		return null;
+		return (dice.getDie1Roll() == 1 && dice.getDie2Roll() == 2) || (dice.getDie1Roll() == 2 && dice.getDie2Roll() == 1);
+	}
+	
+	public Boolean isSingleSkunk() 
+	{
+		return dice.getDie1Roll() == 1 || dice.getDie2Roll() == 1;
 	}
 }
