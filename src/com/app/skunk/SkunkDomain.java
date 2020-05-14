@@ -58,7 +58,7 @@ public class SkunkDomain {
 			do {
 				
 				//ask player's to roll or pass
-				playerDecision = ui.promptRollOrPass(currentPlayer.getName());
+				playerDecision = ui.promptRollOrPass(currentPlayer.getName()).toLowerCase();
 				
 				//handle player's decision
 				switch (playerDecision) 
@@ -98,7 +98,7 @@ public class SkunkDomain {
 						ui.invalidInputMessage(); //handle invalid user input
 				}
 				
-			} while (!playerDecision.equals("p") && !skunkRolled);
+			} while (!skunkRolled && !playerDecision.equals("p"));
 			
 			
 			//player reached target score - end game
@@ -127,6 +127,7 @@ public class SkunkDomain {
 					
 					default: 
 						ui.invalidInputMessage(); //handle invalid user input
+						break;
 				}
 				
 			};
@@ -163,6 +164,7 @@ public class SkunkDomain {
 						turn.roll();
 						
 						if (turn.isSkunked()) {
+							
 							skunkRolled = true;
 							
 							currentPlayer.handleSkunk();
@@ -189,9 +191,10 @@ public class SkunkDomain {
 					
 					default: 
 						ui.invalidInputMessage(); //handle invalid user input
+						break;
 				}
 				
-			} while (!playerDecision.equals("p") && !skunkRolled);
+			} while (!skunkRolled && !playerDecision.equals("p"));
 			
 			
 			// if player reached target score

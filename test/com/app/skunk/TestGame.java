@@ -145,7 +145,7 @@ public class TestGame {
 	}
 	
 	@Test
-	void testEndTurn() {
+	public void testEndTurn() {
 		
 		ArrayList<Player> players = new ArrayList<Player>();
 		
