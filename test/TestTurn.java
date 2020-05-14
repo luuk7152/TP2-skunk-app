@@ -68,6 +68,18 @@ class TestTurn {
 		assertEquals(turn.getLastRoll(), roll);
 	}
 	
-	
+	@Test
+	void test_add_score()
+	{
+		Die die1 = new CrookedDie3(); //Rolls a 3
+		Die die2 = new CrookedDie2(); //Rolls a 2
+		
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);  //total roll 5
+		
+		turn.addScore(roll);
+		
+		assertEquals(turn.getScore(), 5);
+	}
 	
 }

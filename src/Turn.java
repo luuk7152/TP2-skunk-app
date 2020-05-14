@@ -6,10 +6,16 @@ public class Turn {
 	private boolean skunked;
 	private ArrayList<Roll> turnRolls;
 	
-	
+	//constructors
 	public Turn()
 	{
 		this.turnRolls = new ArrayList<Roll>();
+		this.skunked = false;
+	}
+	
+	public Turn(ArrayList<Roll> Rolls) //This constructor simply for testing the getTurnRolls()
+	{
+		this.turnRolls = Rolls;
 		this.skunked = false;
 	}
 	
@@ -39,4 +45,8 @@ public class Turn {
 		return turnRolls.get(turnRolls.size()-1);
 	}
 	
+	public void addScore(Roll roll)
+	{
+		
+	}
 }
