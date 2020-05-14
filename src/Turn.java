@@ -29,5 +29,14 @@ public class Turn {
 		return skunked;
 	}
 	
+	public void addRoll(Roll roll)
+	{
+		turnRolls.add(roll);
+	}
+	
+	public Roll getLastRoll()
+	{
+		return turnRolls.get(turnRolls.size()-1);
+	}
 	
 }

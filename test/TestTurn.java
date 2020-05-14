@@ -5,8 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TestTurn {
-	Turn turn;
-
+	Turn turn = new Turn();
+	Roll roll;
 	@BeforeEach
 	void setUp()
 	{
@@ -40,5 +40,34 @@ class TestTurn {
 	{
 		assertFalse(turn.isSkunked());
 	}
+	
+	@Test
+	void test_add_roll()
+	{
+		Die die1 = new CrookedDie3(); //Rolls a 3
+		Die die2 = new CrookedDie3(); //Rolls a 3
+		
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice); //total roll 6
+		
+		turn.addRoll(roll);
+		assertEquals(turn.getLastRoll(), 6);
+		
+	}
+	
+	@Test
+	void test_get_last_roll()
+	{
+		Die die1 = new CrookedDie3(); //Rolls a 3
+		Die die2 = new CrookedDie2(); //Rolls a 2
+		
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);  //total roll 5
+		
+		turn.addRoll(roll);
+		assertEquals(turn.getLastRoll(), 5);
+	}
+	
+	
 	
 }
