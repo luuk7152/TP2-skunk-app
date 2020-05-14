@@ -26,6 +26,8 @@ public class Turn {
 	
 	public boolean isSkunked()
 	{
-		return null;
+		return skunked;
 	}
+	
+	
 }
