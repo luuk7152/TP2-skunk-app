@@ -183,4 +183,13 @@ class TestTurn {
 			
         }
 	}
+	
+	@Test
+	public void turn_to_string()
+	{
+		Turn turn = new Turn();
+		
+		assertTrue(turn.toString().equals("Your turn score is " + turn.getScore() + "."));
+		
+	}
 }
