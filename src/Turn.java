@@ -47,6 +47,6 @@ public class Turn {
 	
 	public void addScore(Roll roll)
 	{
-		
+		setScore(turnScore + roll.getScore());
 	}
 }
