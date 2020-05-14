@@ -107,7 +107,7 @@ public class SkunkDomain {
 				gameEnded = true; 
 				game.setWinner(currentPlayer);
 				ui.targetScoreReachedMessage(currentPlayer);
-			};
+			}
 			
 			boolean validSummaryInput = false;
 			
@@ -131,7 +131,7 @@ public class SkunkDomain {
 						break;
 				}
 				
-			};
+			}
 			
 			game.setNextPlayer();
 		}
