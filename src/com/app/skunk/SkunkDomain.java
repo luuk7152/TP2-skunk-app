@@ -96,6 +96,7 @@ public class SkunkDomain {
 					
 					default: 
 						ui.invalidInputMessage(); //handle invalid user input
+						break;
 				}
 				
 			} while (!"p".equals(playerDecision) && !skunkRolled);
@@ -202,7 +203,7 @@ public class SkunkDomain {
 				Player previousWinner = game.getWinner();
 				game.setWinner(currentPlayer);
 				ui.newWinnerMessage(currentPlayer, previousWinner);
-			};
+			}
 
 			game.setNextPlayer();
 		}
