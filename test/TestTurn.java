@@ -192,4 +192,23 @@ class TestTurn {
 		assertTrue(turn.toString().equals("Your turn score is " + turn.getScore() + "."));
 		
 	}
+	
+	@Test
+	public void get_turn_rolls()
+	{
+		Turn turn = new Turn();
+		
+		int count = 0;
+		
+		assertTrue(turn.getTurnRolls().size() == count);
+		
+		for (int i = 1; i < 1000; i++) {
+			
+			turn.roll();
+			count++;
+			
+			assertTrue(turn.getTurnRolls().size() == count);
+			
+        }
+	}
 }

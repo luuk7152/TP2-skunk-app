@@ -82,6 +82,9 @@ public class Turn {
 		this.skunked = roll.isDoubleSkunk() || roll.isDeuceSkunk() || roll.isSingleSkunk();
 	}
 	
-	
+	public String toString()
+	{
+		return "Your turn score is " + this.turnScore + ".";
+	}
 	
 }
