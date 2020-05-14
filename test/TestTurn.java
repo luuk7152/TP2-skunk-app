@@ -51,7 +51,7 @@ class TestTurn {
 		roll = new Roll(dice); //total roll 6
 		
 		turn.addRoll(roll);
-		assertEquals(turn.getLastRoll(), 6);
+		assertEquals(turn.getLastRoll(), roll);
 		
 	}
 	
@@ -65,7 +65,7 @@ class TestTurn {
 		roll = new Roll(dice);  //total roll 5
 		
 		turn.addRoll(roll);
-		assertEquals(turn.getLastRoll(), 5);
+		assertEquals(turn.getLastRoll(), roll);
 	}
 	
 	
