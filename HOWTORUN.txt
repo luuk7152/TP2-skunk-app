@@ -1,0 +1,5 @@
+Include a text file HOWTORUN.txt in your repository which describes the details of how to run your submitted code and unit tests - including (if possible) the specific user input that can be used in demonstrating the correctness of your implementation. 
+
+
+I think we give instructions for importing into Eclipse, then Run as Java Application?
+Mention specifically what inputs are required at each step since we don't have handling for invalid inputs.
