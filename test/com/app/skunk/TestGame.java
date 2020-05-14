@@ -143,4 +143,51 @@ public class TestGame {
 		game.setNextPlayer();
 		assertEquals(game.getCurrentPlayer().getName(), name1);
 	}
+	
+	@Test
+	void testEndTurn() {
+		
+		ArrayList<Player> players = new ArrayList<Player>();
+		
+		for (int i = 1; i <= 100; i++) {
+			String name = Integer.toString(i);
+			Player player = new Player(name);
+			players.add(player);
+        }
+		
+		Game game = new Game(players);
+		
+		Turn turn = new Turn();
+		game.getCurrentPlayer().setCurrentTurn(turn);
+		
+		int turnScore = 20;
+		
+		turn.setScore(turnScore);
+		game.endTurn();
+		
+		assertEquals(game.getCurrentPlayer().getScore(), turnScore);
+		
+	}
+	
+	@Test
+	public void testSetAndGetFirstWinner()
+	{	
+		Player player1 = new Player("John Doe");
+		Player player2 = new Player("Mary Johnson");
+		
+		ArrayList<Player> players = new ArrayList<Player>();
+		
+		players.add(player1);
+		players.add(player2);
+		
+		game.setPlayers(players);
+		
+		assertEquals(game.getFirstWinner(), null);
+		
+		game.setWinner(player1);
+		assertEquals(game.getFirstWinner(), player1);
+		
+		game.setWinner(player2);
+		assertEquals(game.getFirstWinner(), player1);
+	}
 }

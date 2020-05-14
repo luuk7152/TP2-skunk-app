@@ -8,10 +8,10 @@ public class SkunkApp {
 	
 	public SkunkApp()
 	{
-		// Create UI layer
+		//create UI layer
 		ui = new Interface();
 		
-		// Create domain layer
+		//create domain layer
 		skunkDomain = new SkunkDomain(ui);
 	}
 	

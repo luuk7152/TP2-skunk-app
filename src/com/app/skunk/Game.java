@@ -8,6 +8,7 @@ public class Game {
 	
 	private Player currentPlayer;
 	
+	private Player firstWinner = null;
 	private Player winner = null;
 	
 	//constructors
@@ -47,6 +48,9 @@ public class Game {
 	public void setWinner(Player player)
 	{
 		this.winner = player;
+		if (this.firstWinner == null) {
+			this.firstWinner = player;
+		}
 	}
 	
 	public Player getWinner()
@@ -54,11 +58,21 @@ public class Game {
 		return this.winner;
 	}
 	
+	public Player getFirstWinner()
+	{
+		return this.firstWinner;
+	}
+	
 	//methods
 	public void setNextPlayer()
 	{	
 		int nextPlayerIndex = (players.indexOf(currentPlayer) + 1) % players.size();
 		currentPlayer = players.get(nextPlayerIndex);
+	}
+	
+	public void endTurn()
+	{
+		currentPlayer.endTurn();
 	}
 	
 }
