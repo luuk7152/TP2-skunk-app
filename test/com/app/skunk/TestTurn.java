@@ -16,39 +16,39 @@ class TestTurn {
 	private Roll roll;
 	
 	@BeforeEach
-	void setUp()
+	public void setUp()
 	{
 		turn = new Turn();
 	}
 
 	@Test
-	void testTurnConstructor() 
+	public void testTurnConstructor() 
 	{
 		assertEquals(turn.getClass().getSimpleName(), "Turn");
 	}
 
 	@Test
-	void testSetScore()
+	public void testSetScore()
 	{
 		turn.setScore(666);
 		assertEquals(turn.getScore(), 666);
 	}
 	
 	@Test
-	void testGetScore()
+	public void testGetScore()
 	{
 		turn.setScore(1122);
 		assertEquals(turn.getScore(), 1122);
 	}
 	
 	@Test
-	void testBooleanIsSkunked()
+	public void testBooleanIsSkunked()
 	{
 		assertFalse(turn.isSkunked());
 	}
 	
 	@Test
-	void testAddRoll()
+	public void testAddRoll()
 	{
 		Die die1 = new CrookedDie3(); //Rolls a 3
 		Die die2 = new CrookedDie3(); //Rolls a 3
@@ -62,7 +62,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void testGetLastRoll()
+	public void testGetLastRoll()
 	{
 		Die die1 = new CrookedDie3(); //Rolls a 3
 		Die die2 = new CrookedDie2(); //Rolls a 2
@@ -75,7 +75,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void testAddScore()
+	public void testAddScore()
 	{
 		Die die1 = new CrookedDie3(); //Rolls a 3
 		Die die2 = new CrookedDie2(); //Rolls a 2
@@ -89,7 +89,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void testGetTurnRoll()
+	public void testGetTurnRoll()
 	{
 		Die die1 = new CrookedDie1(); //Rolls a 1
 		Die die2 = new CrookedDie2(); //Rolls a 2
@@ -114,7 +114,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void testGetTurnPenalty()
+	public void testGetTurnPenalty()
 	{
 		Die die1 = new CrookedDie1(); //Rolls a 1
 		Die die2 = new CrookedDie1(); //Rolls a 1
@@ -127,8 +127,8 @@ class TestTurn {
 	}
 	
 	@Test
-	void outcomeSingleSkunk() {
-		
+	public void outcomeSingleSkunk() 
+	{	
 		Die die1 = new CrookedDie1();
 		Die die2 = new CrookedDie3();
 		
@@ -149,8 +149,8 @@ class TestTurn {
 	}
 	
 	@Test
-	void outcomeDeuceSkunk() {
-		
+	public void testOutcomeDeuceSkunk() 
+	{	
 		Die die1 = new CrookedDie1();
 		Die die2 = new CrookedDie2();
 		
@@ -172,8 +172,8 @@ class TestTurn {
 	}
 	
 	@Test
-	void outcomeDoubleSkunk() {
-		
+	public void testOutcomeDoubleSkunk() 
+	{
 		Die die1 = new CrookedDie1();
 		Die die2 = new CrookedDie1();
 		Dice dice = new Dice(die1, die2);
@@ -186,8 +186,8 @@ class TestTurn {
 	}
 	
 	@Test
-	void outcomeNoSkunk() {
-		
+	public void testOutcomeNoSkunk() 
+	{
 		Die die1 = new CrookedDie3();
 		Die die2 = new CrookedDie3();
 		Dice dice = new Dice(die1, die2);
@@ -200,7 +200,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void testScoreAccumulation()
+	public void testScoreAccumulation()
 	{
 		Turn turn = new Turn();
 		
@@ -217,7 +217,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void testTurnToString()
+	public void testTurnToString()
 	{
 		Turn turn = new Turn();
 		
@@ -225,22 +225,22 @@ class TestTurn {
 		
 	}
 	
-//	@Test
-//	void testGetTurnRolls()
-//	{
-//		Turn turn = new Turn();
-//		
-//		int count = 0;
-//		
-//		assertTrue(turn.getTurnRolls().size() == count);
-//		
-//		for (int i = 1; i < 1000; i++) {
-//			
-//			turn.roll();
-//			count++;
-//			
-//			assertTrue(turn.getTurnRolls().size() == count);
-//			
-//        }
-//	}
+	@Test
+	public void testGetTurnRolls()
+	{
+		Turn turn = new Turn();
+		
+		int count = 0;
+		
+		assertEquals(turn.getTurnRolls().size(), count);
+		
+		for (int i = 1; i < 1000; i++) {
+			
+			turn.roll();
+			count++;
+			
+			assertEquals(turn.getTurnRolls().size(), count);
+			
+        }
+	}
 }

@@ -16,12 +16,12 @@ public class TestDie {
 	private List<Integer> validValues = Arrays.asList(1,2,3,4,5,6);
 	
 	@BeforeEach
-    void setUp() {
+	public void setUp() {
 		die = new Die();
     }
 	
 	@Test
-	void testGetLastRoll() 
+	public void testGetLastRoll() 
 	{
 		die.roll();
 		int roll = die.getLastRoll();
@@ -30,7 +30,7 @@ public class TestDie {
 	}
 	
 	@Test
-	void testGenerateRandomNumberBetween1And6()
+	public void testGenerateRandomNumberBetween1And6()
 	{	
 		for (int i = 1; i < 100000; i++) {
 			
@@ -42,7 +42,7 @@ public class TestDie {
 	}
 	
 	@Test
-	void testDisplayDieToString() 
+	public void testDisplayDieToString() 
 	{
 		die.roll();
 		int roll = die.getLastRoll();

@@ -14,24 +14,24 @@ public class TestPlayer {
 	private String name;
 	
 	@BeforeEach
-    void setUp() {
+	public void setUp() {
 		player = new Player(name);
     }
 	
 	@Test
-	void testPlayerConstructor()
+	public void testPlayerConstructor()
 	{
 		assertEquals(player.getClass().getSimpleName(), "Player");
 	}
 	
 	@Test
-	void testGetName()
+	public void testGetName()
 	{
 		assertEquals(player.getName(), name);
 	}
 	
 	@Test
-	void testSetName()
+	public void testSetName()
 	{
 		String newName = "Mary Johnson";
 		player.setName(newName);
@@ -40,7 +40,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void testGetChipCount()
+	public void testGetChipCount()
 	{
 		int chipCount = 100;
 		player = new Player(name, chipCount);
@@ -49,7 +49,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void testSetChipCount()
+	public void testSetChipCount()
 	{
 		int newChipCount = 10;
 		player.setChipCount(newChipCount);
@@ -58,7 +58,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void testGetScore()
+	public void testGetScore()
 	{
 		player = new Player(name);
 		
@@ -66,7 +66,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void testSetScore()
+	public void testSetScore()
 	{
 		int newScore = 10;
 		player.setScore(newScore);
@@ -76,7 +76,7 @@ public class TestPlayer {
 	
 
 	@Test
-	void testSetCurrentTurn()
+	public void testSetCurrentTurn()
 	{
 		Turn turn = new Turn();
 		player.setCurrentTurn(turn);
@@ -85,7 +85,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void testGetCurrentTurn()
+	public void testGetCurrentTurn()
 	{
 		Turn turn = new Turn();
 		player.setCurrentTurn(turn);
@@ -95,7 +95,7 @@ public class TestPlayer {
 	
 	
 	@Test
-	void testHandleSkunked()
+	public void testHandleSkunked()
 	{	
 		player.setScore(100);
 		
@@ -119,7 +119,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void testHandleDoubleSkunked()
+	public void testHandleDoubleSkunked()
 	{
 		player.setScore(100);
 		
@@ -144,7 +144,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void testHandleNoSkunked()
+	public void testHandleNoSkunked()
 	{
 		player.setScore(100);
 		
@@ -170,7 +170,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void testEndPlayerTurn()
+	public void testEndPlayerTurn()
 	{
 		player.setScore(100);
 		

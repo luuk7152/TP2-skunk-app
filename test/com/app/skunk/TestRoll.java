@@ -12,18 +12,18 @@ class TestRoll {
 	private Roll roll;
 	
 	@BeforeEach
-    void setUp() {
+	public void setUp() {
 		roll = new Roll();
     }
 	
 	@Test
-	void testRollConstructor()
+	public void testRollConstructor()
 	{
 		assertEquals(roll.getClass().getSimpleName(), "Roll");
 	}
 	
 	@Test
-	void testGetDice()
+	public void testGetDice()
 	{
 		Die die1 = new CrookedDie1();
 		Die die2 = new CrookedDie1();
@@ -35,7 +35,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void testGetScore()
+	public void testGetScore()
 	{
 		Die die1 = new CrookedDie1();
 		Die die2 = new CrookedDie1();
@@ -47,7 +47,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void testSingleSkunkOutcome()
+	public void testSingleSkunkOutcome()
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie3(); //forces a roll of 3
@@ -60,7 +60,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void testDoubleSkunkOutcome()
+	public void testDoubleSkunkOutcome()
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie1(); //forces a roll of 1
@@ -73,7 +73,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void testSkunkDeuceOutcome()
+	public void testSkunkDeuceOutcome()
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie2(); //forces a roll of 2
@@ -86,7 +86,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void testNoSkunkOutcome()
+	public void testNoSkunkOutcome()
 	{
 		Die die1 = new CrookedDie3(); //forces a roll of 3
 		Die die2 = new CrookedDie3(); //forces a roll of 3
@@ -101,7 +101,7 @@ class TestRoll {
 	//Test Roll Booleans
 	
 	@Test
-	void testIsSingleSkunk()
+	public void testIsSingleSkunk()
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie3(); //forces a roll of 3
@@ -118,7 +118,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void testIsDoubleSkunk()
+	public void testIsDoubleSkunk()
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie1(); //forces a roll of 1
@@ -130,7 +130,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void testIsSkunkDeuce()
+	public void testIsSkunkDeuce()
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie2(); //forces a roll of 2
@@ -149,7 +149,7 @@ class TestRoll {
 	//Test ToString Outcomes
 	
 	@Test
-	void testToStringSingleSkunk()
+	public void testToStringSingleSkunk()
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie3(); //forces a roll of 3
@@ -161,7 +161,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void testToStringDoubleSkunk()
+	public void testToStringDoubleSkunk()
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie1(); //forces a roll of 1
@@ -173,7 +173,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void testToStringSkunkDeuce()
+	public void testToStringSkunkDeuce()
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie2(); //forces a roll of 2
@@ -185,7 +185,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void testToStringNoSkunk()
+	public void testToStringNoSkunk()
 	{
 		Die die1 = new CrookedDie3(); //forces a roll of 3
 		Die die2 = new CrookedDie3(); //forces a roll of 3

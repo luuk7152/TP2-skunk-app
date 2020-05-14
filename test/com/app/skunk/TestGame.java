@@ -12,12 +12,12 @@ public class TestGame {
 	private Game game;
 	
 	@BeforeEach
-    void setUp() {
+    public void setUp() {
 		game = new Game();
     }
 	
 	@Test
-	void testGameConstructor()
+	public void testGameConstructor()
 	{
 		assertEquals(game.getClass().getSimpleName(), "Game");
 		
@@ -33,7 +33,7 @@ public class TestGame {
 	}
 	
 	@Test
-	void testSetPlayers()
+	public void testSetPlayers()
 	{
 		int size = 50;
 		
@@ -51,7 +51,7 @@ public class TestGame {
 	}
 	
 	@Test
-	void testGetPlayers()
+	public void testGetPlayers()
 	{
 		String name1 = "John Doe";
 		String name2 = "Mary Johnson";
@@ -71,7 +71,7 @@ public class TestGame {
 	}
 	
 	@Test
-	void testSetAndGetCurrentPlayer()
+	public void testSetAndGetCurrentPlayer()
 	{
 		String name1 = "John Doe";
 		String name2 = "Mary Johnson";
@@ -92,7 +92,7 @@ public class TestGame {
 	}
 	
 	@Test
-	void testSetAndGetWinner()
+	public void testSetAndGetWinner()
 	{
 		String name1 = "John Doe";
 		String name2 = "Mary Johnson";
@@ -113,7 +113,7 @@ public class TestGame {
 	}
 	
 	@Test
-	void testSetNextPlayer()
+	public void testSetNextPlayer()
 	{
 		String name1 = "John Doe";
 		String name2 = "Mary Johnson";
