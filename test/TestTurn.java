@@ -166,4 +166,21 @@ class TestTurn {
 		assertTrue(turn.isSkunked());
 		
 	}
+	
+	@Test
+	public void score_accumulation()
+	{
+		Turn turn = new Turn();
+		
+		int prevScore = 0;
+		
+		for (int i = 1; i < 100000; i++) {
+			
+			prevScore = turn.getScore();
+			turn.roll();
+						
+			assertEquals(turn.getScore(), prevScore + turn.getLastRoll().getScore());
+			
+        }
+	}
 }
