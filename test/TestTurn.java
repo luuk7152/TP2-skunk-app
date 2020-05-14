@@ -11,6 +11,7 @@ class TestTurn {
 	Turn turn = new Turn();
 	Roll roll;
 	Roll roll2;
+	
 	@BeforeEach
 	void setUp()
 	{

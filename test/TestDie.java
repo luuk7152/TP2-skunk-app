@@ -13,7 +13,7 @@ public class TestDie {
 	List<Integer> validValues = Arrays.asList(1,2,3,4,5,6);
 	
 	@BeforeEach
-    public void setup() {
+    public void setUp() {
 		die = new Die();
     }
 	

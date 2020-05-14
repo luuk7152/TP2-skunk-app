@@ -8,7 +8,7 @@ class TestRoll {
 	private Roll roll;
 	
 	@BeforeEach
-    public void setup() {
+    void setUp() {
 		roll = new Roll();
     }
 	

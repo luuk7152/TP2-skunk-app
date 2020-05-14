@@ -9,7 +9,7 @@ public class TestPlayer {
 	private String name;
 	
 	@BeforeEach
-    void setup() {
+    void setUp() {
 		player = new Player(name);
     }
 	
