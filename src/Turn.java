@@ -49,4 +49,9 @@ public class Turn {
 	{
 		setScore(turnScore + roll.getScore());
 	}
+	
+	public ArrayList<Roll> getTurnRolls()
+	{
+		return this.turnRolls;
+	}
 }
