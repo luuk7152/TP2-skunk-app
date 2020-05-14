@@ -117,22 +117,30 @@ public class TestGame {
 	{
 		String name1 = "John Doe";
 		String name2 = "Mary Johnson";
+		String name3 = "James Smith";
 		
 		Player player1 = new Player(name1);
 		Player player2 = new Player(name2);
+		Player player3 = new Player(name3);
+		
 		
 		ArrayList<Player> players = new ArrayList<Player>();
 		
 		players.add(player1);
 		players.add(player2);
+		players.add(player3);
 		
 		game.setPlayers(players);
-		assertEquals(game.getCurrentPlayer().getName(), name1);
 		
-		game.setNextPlayer();
 		assertEquals(game.getCurrentPlayer().getName(), name1);
 		
 		game.setNextPlayer();
 		assertEquals(game.getCurrentPlayer().getName(), name2);
+		
+		game.setNextPlayer();
+		assertEquals(game.getCurrentPlayer().getName(), name3);
+		
+		game.setNextPlayer();
+		assertEquals(game.getCurrentPlayer().getName(), name1);
 	}
 }

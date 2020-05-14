@@ -56,8 +56,9 @@ public class Game {
 	
 	//methods
 	public void setNextPlayer()
-	{
-		
+	{	
+		int nextPlayerIndex = (players.indexOf(currentPlayer) + 1) % players.size();
+		currentPlayer = players.get(nextPlayerIndex);
 	}
 	
 }
