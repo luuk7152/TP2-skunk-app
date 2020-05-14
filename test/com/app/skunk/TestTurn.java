@@ -14,7 +14,6 @@ class TestTurn {
 	
 	private Turn turn = new Turn();
 	private Roll roll;
-	private Roll roll2;
 	
 	@BeforeEach
 	void setUp()
@@ -101,7 +100,8 @@ class TestTurn {
 		Dice dice2 = new Dice(die3, die4);
 		
 		roll = new Roll(dice1);  //total roll 3
-		roll2 = new Roll(dice2); //total roll 6
+		
+		Roll roll2 = new Roll(dice2); //total roll 6
 		
 		ArrayList<Roll> testRolls = new ArrayList<Roll>();
 		
@@ -186,6 +186,20 @@ class TestTurn {
 	}
 	
 	@Test
+	void outcomeNoSkunk() {
+		
+		Die die1 = new CrookedDie3();
+		Die die2 = new CrookedDie3();
+		Dice dice = new Dice(die1, die2);
+		
+		Turn turn = new Turn();
+		turn.roll(dice);
+		
+		assertEquals(turn.getPenalty(), 0);
+		assertFalse(turn.isSkunked());
+	}
+	
+	@Test
 	void testScoreAccumulation()
 	{
 		Turn turn = new Turn();
@@ -211,22 +225,22 @@ class TestTurn {
 		
 	}
 	
-	@Test
-	void testGetTurnRolls()
-	{
-		Turn turn = new Turn();
-		
-		int count = 0;
-		
-		assertTrue(turn.getTurnRolls().size() == count);
-		
-		for (int i = 1; i < 1000; i++) {
-			
-			turn.roll();
-			count++;
-			
-			assertTrue(turn.getTurnRolls().size() == count);
-			
-        }
-	}
+//	@Test
+//	void testGetTurnRolls()
+//	{
+//		Turn turn = new Turn();
+//		
+//		int count = 0;
+//		
+//		assertTrue(turn.getTurnRolls().size() == count);
+//		
+//		for (int i = 1; i < 1000; i++) {
+//			
+//			turn.roll();
+//			count++;
+//			
+//			assertTrue(turn.getTurnRolls().size() == count);
+//			
+//        }
+//	}
 }

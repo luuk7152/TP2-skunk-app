@@ -1,5 +1,7 @@
 package com.app.skunk;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -70,6 +72,115 @@ public class TestPlayer {
 		player.setScore(newScore);
 		
 		assertEquals(player.getScore(), newScore);
+	}
+	
+
+	@Test
+	void testSetCurrentTurn()
+	{
+		Turn turn = new Turn();
+		player.setCurrentTurn(turn);
+		
+		assertEquals(player.getCurrentTurn().getClass().getSimpleName(), "Turn");
+	}
+	
+	@Test
+	void testGetCurrentTurn()
+	{
+		Turn turn = new Turn();
+		player.setCurrentTurn(turn);
+		
+		assertEquals(player.getCurrentTurn(), turn);
+	}
+	
+	
+	@Test
+	void testHandleSkunked()
+	{	
+		player.setScore(100);
+		
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie2();
+		Dice dice = new Dice(die1, die2);
+		
+		Roll roll = new Roll(dice);
+		
+		Turn turn = new Turn();
+		turn.setScore(50);
+		
+		player.setCurrentTurn(turn);
+		
+		turn.addRoll(roll);
+		
+		player.handleSkunk();
+		
+		assertTrue(player.getCurrentTurn().isSkunked());
+		assertEquals(player.getCurrentTurn().getScore(), 0);
+	}
+	
+	@Test
+	void testHandleDoubleSkunked()
+	{
+		player.setScore(100);
+		
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie1();
+		Dice dice = new Dice(die1, die2);
+		
+		Roll roll = new Roll(dice);
+		
+		Turn turn = new Turn();
+		turn.setScore(50);
+		
+		player.setCurrentTurn(turn);
+		
+		turn.addRoll(roll);
+		
+		player.handleSkunk();
+		
+		assertTrue(player.getCurrentTurn().isSkunked());
+		assertEquals(player.getCurrentTurn().getScore(), 0);
+		assertEquals(player.getScore(), 0);
+	}
+	
+	@Test
+	void testHandleNoSkunked()
+	{
+		player.setScore(100);
+		
+		Die die1 = new CrookedDie3();
+		Die die2 = new CrookedDie3();
+		Dice dice = new Dice(die1, die2);
+		
+		Roll roll = new Roll(dice);
+		
+		Turn turn = new Turn();
+		turn.setScore(50);
+		
+		player.setCurrentTurn(turn);
+		
+		turn.addRoll(roll);
+		turn.addScore(roll);
+		
+		player.handleSkunk();
+		
+		assertFalse(player.getCurrentTurn().isSkunked());
+		assertEquals(player.getCurrentTurn().getScore(), 56);
+		assertEquals(player.getScore(), 100);
+	}
+	
+	@Test
+	void testEndPlayerTurn()
+	{
+		player.setScore(100);
+		
+		Turn turn = new Turn();
+		turn.setScore(50);
+		
+		player.setCurrentTurn(turn);
+		player.endTurn();
+		
+		assertEquals(player.getScore(), 100 + 50);
 	}
 	
 }

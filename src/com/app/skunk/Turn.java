@@ -20,7 +20,7 @@ public class Turn {
 		this.skunked = false;
 	}
 	
-	//getters and setters, baby!
+	//getters and setters
 	public void setScore(int score)
 	{
 		this.turnScore = score;
@@ -39,6 +39,8 @@ public class Turn {
 	public void addRoll(Roll roll)
 	{
 		turnRolls.add(roll);
+
+		this.skunked = roll.isDoubleSkunk() || roll.isDeuceSkunk() || roll.isSingleSkunk();
 	}
 	
 	public Roll getLastRoll()
@@ -61,26 +63,24 @@ public class Turn {
 		return this.getLastRoll().getPenalty();
 	}
 	
-	//Methods, yo.
+	//methods
 	public void roll()
 	{
 		Roll roll = new Roll();
 		
 		addRoll(roll);
-		addScore(roll);
 		
-		skunked = roll.isDoubleSkunk() || roll.isDeuceSkunk() || roll.isSingleSkunk();
+		addScore(roll);
 	}
 	
-	// roll with a predefined set of die
+	//roll with a predefined set of die
 	public void roll(Dice dice)
 	{
 		Roll roll = new Roll(dice);
 		
 		addRoll(roll);
-		addScore(roll);
 		
-		this.skunked = roll.isDoubleSkunk() || roll.isDeuceSkunk() || roll.isSingleSkunk();
+		addScore(roll);
 	}
 	
 	public String toString()

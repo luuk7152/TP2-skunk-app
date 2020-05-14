@@ -5,9 +5,10 @@ public class Player {
 	private String name;
 	private int chipCount;
 	private int score;
+	private Turn currentTurn;
 	
 	
-	// constructors
+	//constructors
 	Player(String name)
 	{
 		this.name = name;
@@ -23,7 +24,7 @@ public class Player {
 	}
 	
 	
-	// getters and setters
+	//getters and setters
 	public String getName() 
 	{
 		return name;
@@ -52,5 +53,33 @@ public class Player {
 	public void setScore(int score) 
 	{
 		this.score = score;
+	}
+	
+	//methods
+	public void setCurrentTurn(Turn turn)
+	{
+		currentTurn = turn;
+	}
+	
+	public Turn getCurrentTurn()
+	{
+		return currentTurn;
+	}
+	
+	public void handleSkunk()
+	{
+		if (currentTurn.isSkunked()) {
+			currentTurn.setScore(0);
+		}
+		
+		if (currentTurn.getLastRoll().isDoubleSkunk()) {
+			score = 0;
+		}
+	}
+	
+	public void endTurn()
+	{
+		setScore(score + currentTurn.getScore());
+
 	}
 }
