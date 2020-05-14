@@ -16,11 +16,11 @@ public class Turn {
 	//getters and setters, baby!
 	public void setScore(int score)
 	{
-
+		this.turnScore = score;
 	}
 	
-	public void getScore()
+	public int getScore()
 	{
-
+		return turnScore;
 	}
 }
