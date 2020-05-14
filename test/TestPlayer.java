@@ -52,4 +52,21 @@ public class TestPlayer {
 		assertEquals(player.getChipCount(), newChipCount);
 	}
 	
+	@Test
+	void test_get_score()
+	{
+		player = new Player(name);
+		
+		assertEquals(player.getScore(), 0);
+	}
+	
+	@Test
+	void test_set_score()
+	{
+		int newScore = 10;
+		player.setScore(newScore);
+		
+		assertEquals(player.getScore(), newScore);
+	}
+	
 }
