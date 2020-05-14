@@ -98,7 +98,7 @@ public class SkunkDomain {
 						ui.invalidInputMessage(); //handle invalid user input
 				}
 				
-			} while (!skunkRolled && !playerDecision.equals("p"));
+			} while (!"p".equals(playerDecision) && !skunkRolled);
 			
 			
 			//player reached target score - end game
@@ -194,7 +194,7 @@ public class SkunkDomain {
 						break;
 				}
 				
-			} while (!skunkRolled && !playerDecision.equals("p"));
+			} while (!"p".equals(playerDecision) && !skunkRolled);
 			
 			
 			// if player reached target score
