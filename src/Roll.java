@@ -38,7 +38,7 @@ public class Roll {
 			return 1;
 		}
 		
-		return 0;			
+		return 0;
 	}
 	
 	//Skunk Conditions

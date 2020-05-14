@@ -75,6 +75,18 @@ class TestRoll {
 		
 	}
 	
+	@Test
+	void test_No_Skunk_Outcome()
+	{
+		Die die1 = new CrookedDie3(); //forces a roll of 3
+		Die die2 = new CrookedDie3(); //forces a roll of 3
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);
+		
+		assertEquals(roll.getPenalty(), 0);
+		
+	}
+	
 	//Test Roll Booleans
 	
 	@Test
@@ -82,10 +94,14 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie3(); //forces a roll of 3
-		Dice dice = new Dice(die1, die2);
-		roll = new Roll(dice);
 		
-		assertTrue(roll.isSingleSkunk());
+		Dice dice1 = new Dice(die1, die2);
+		Roll roll1 = new Roll(dice1);
+		assertTrue(roll1.isSingleSkunk());
+		
+		Dice dice2 = new Dice(die2, die1);
+		Roll roll2 = new Roll(dice2);
+		assertTrue(roll2.isSingleSkunk());
 	}
 	
 	@Test
@@ -94,10 +110,9 @@ class TestRoll {
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie1(); //forces a roll of 1
 		Dice dice = new Dice(die1, die2);
-		roll = new Roll(dice);
+		Roll roll = new Roll(dice);
 		
 		assertTrue(roll.isDoubleSkunk());
-		
 	}
 	
 	@Test
@@ -105,11 +120,14 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie2(); //forces a roll of 2
-		Dice dice = new Dice(die1, die2);
-		roll = new Roll(dice);
 		
-		assertTrue(roll.isDeuceSkunk());
+		Dice dice1 = new Dice(die1, die2);
+		Roll roll1 = new Roll(dice1);
+		assertTrue(roll1.isDeuceSkunk());
 		
+		Dice dice2 = new Dice(die2, die1);
+		Roll roll2 = new Roll(dice2);
+		assertTrue(roll2.isDeuceSkunk());
 	}
 	
 	//Test ToString Outcomes
