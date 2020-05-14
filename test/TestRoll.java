@@ -1,12 +1,12 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TestRoll {
 	
 	private Roll roll;
+	
 	@BeforeEach
     public void setup() {
 		roll = new Roll();
@@ -23,8 +23,10 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1();
 		Die die2 = new CrookedDie1();
+		
 		Dice dice = new Dice(die1, die2);
 		roll = new Roll(dice);
+		
 		assertEquals(roll.getDice().getDie1Roll(), 1);
 	}
 	
@@ -33,6 +35,7 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1();
 		Die die2 = new CrookedDie1();
+		
 		Dice dice = new Dice(die1, die2);
 		roll = new Roll(dice);
 		
@@ -44,6 +47,7 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie3(); //forces a roll of 3
+		
 		Dice dice = new Dice(die1, die2);
 		roll = new Roll(dice);
 		
@@ -56,6 +60,7 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie1(); //forces a roll of 1
+		
 		Dice dice = new Dice(die1, die2);
 		roll = new Roll(dice);
 		
@@ -68,6 +73,7 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie2(); //forces a roll of 2
+		
 		Dice dice = new Dice(die1, die2);
 		roll = new Roll(dice);
 		
@@ -80,6 +86,7 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie3(); //forces a roll of 3
 		Die die2 = new CrookedDie3(); //forces a roll of 3
+		
 		Dice dice = new Dice(die1, die2);
 		roll = new Roll(dice);
 		
@@ -97,10 +104,12 @@ class TestRoll {
 		
 		Dice dice1 = new Dice(die1, die2);
 		Roll roll1 = new Roll(dice1);
+		
 		assertTrue(roll1.isSingleSkunk());
 		
 		Dice dice2 = new Dice(die2, die1);
 		Roll roll2 = new Roll(dice2);
+		
 		assertTrue(roll2.isSingleSkunk());
 	}
 	
@@ -109,8 +118,9 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie1(); //forces a roll of 1
+		
 		Dice dice = new Dice(die1, die2);
-		Roll roll = new Roll(dice);
+		roll = new Roll(dice);
 		
 		assertTrue(roll.isDoubleSkunk());
 	}
@@ -123,10 +133,12 @@ class TestRoll {
 		
 		Dice dice1 = new Dice(die1, die2);
 		Roll roll1 = new Roll(dice1);
+		
 		assertTrue(roll1.isDeuceSkunk());
 		
 		Dice dice2 = new Dice(die2, die1);
 		Roll roll2 = new Roll(dice2);
+		
 		assertTrue(roll2.isDeuceSkunk());
 	}
 	
@@ -137,6 +149,7 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie3(); //forces a roll of 3
+		
 		Dice dice = new Dice(die1, die2);
 		roll = new Roll(dice);
 		
@@ -148,6 +161,7 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie1(); //forces a roll of 1
+		
 		Dice dice = new Dice(die1, die2);
 		roll = new Roll(dice);
 		
@@ -159,9 +173,22 @@ class TestRoll {
 	{
 		Die die1 = new CrookedDie1(); //forces a roll of 1
 		Die die2 = new CrookedDie2(); //forces a roll of 2
+		
 		Dice dice = new Dice(die1, die2);
 		roll = new Roll(dice);
 		
 		assertEquals(roll.toString(), "You rolled a Deuce Skunk => 1 and 2.");
+	}
+	
+	@Test
+	void test_To_String_No_Skunk()
+	{
+		Die die1 = new CrookedDie3(); //forces a roll of 3
+		Die die2 = new CrookedDie3(); //forces a roll of 3
+		
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);
+		
+		assertEquals(roll.toString(), "You rolled a 6 => 3 and 3.");
 	}
 }

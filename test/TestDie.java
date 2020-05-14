@@ -11,8 +11,6 @@ public class TestDie {
 	private Die die;
 	
 	List<Integer> validValues = Arrays.asList(1,2,3,4,5,6);
-
-
 	
 	@BeforeEach
     public void setup() {
