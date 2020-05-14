@@ -122,4 +122,48 @@ class TestTurn {
 		
 		assertEquals(turn.getPenalty(), 4);
 	}
+	
+	@Test
+	void outcome_single_skunk() {
+		
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie3();
+		Dice dice = new Dice(die1, die2);
+		
+		Turn turn = new Turn();
+		turn.roll(dice);
+		
+		assertEquals(turn.getPenalty(), 1);
+		assertTrue(turn.isSkunked());
+	}
+	
+	@Test
+	void outcome_deuce_skunk() {
+		
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie2();
+		Dice dice = new Dice(die1, die2);
+		
+		Turn turn = new Turn();
+		turn.roll(dice);
+		
+		assertEquals(turn.getPenalty(), 2);
+		assertTrue(turn.isSkunked());
+		
+	}
+	
+	@Test
+	void outcome_double_skunk() {
+		
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie1();
+		Dice dice = new Dice(die1, die2);
+		
+		Turn turn = new Turn();
+		turn.roll(dice);
+		
+		assertEquals(turn.getPenalty(), 4);
+		assertTrue(turn.isSkunked());
+		
+	}
 }
