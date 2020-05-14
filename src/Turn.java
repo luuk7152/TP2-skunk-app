@@ -23,4 +23,9 @@ public class Turn {
 	{
 		return turnScore;
 	}
+	
+	public boolean isSkunked()
+	{
+		return null;
+	}
 }
