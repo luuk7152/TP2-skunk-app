@@ -12,6 +12,12 @@ public class Player {
 		this.chipCount = 50; // starting chip count 
 	}
 	
+	Player(String name, int chipCount)
+	{
+		this.name = name;
+		this.chipCount = chipCount; // starting chip count 
+	}
+	
 	
 	// getters and setters
 	public String getName() 
@@ -24,4 +30,13 @@ public class Player {
 		this.name = name;
 	}
 	
+	public int getChipCount() 
+	{
+		return chipCount;
+	}
+
+	public void setChipCount(int chipCount) 
+	{
+		this.chipCount = chipCount;
+	}
 }
