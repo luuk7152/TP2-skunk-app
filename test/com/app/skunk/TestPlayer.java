@@ -17,19 +17,19 @@ public class TestPlayer {
     }
 	
 	@Test
-	void test_player_constructor()
+	void testPlayerConstructor()
 	{
 		assertEquals(player.getClass().getSimpleName(), "Player");
 	}
 	
 	@Test
-	void test_get_name()
+	void testGetName()
 	{
 		assertEquals(player.getName(), name);
 	}
 	
 	@Test
-	void test_set_name()
+	void testSetName()
 	{
 		String newName = "Mary Johnson";
 		player.setName(newName);
@@ -38,7 +38,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void test_get_chip_count()
+	void testGetChipCount()
 	{
 		int chipCount = 100;
 		player = new Player(name, chipCount);
@@ -47,7 +47,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void test_set_chip_count()
+	void testSetChipCount()
 	{
 		int newChipCount = 10;
 		player.setChipCount(newChipCount);
@@ -56,7 +56,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void test_get_score()
+	void testGetScore()
 	{
 		player = new Player(name);
 		
@@ -64,7 +64,7 @@ public class TestPlayer {
 	}
 	
 	@Test
-	void test_set_score()
+	void testSetScore()
 	{
 		int newScore = 10;
 		player.setScore(newScore);

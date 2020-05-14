@@ -12,9 +12,9 @@ import org.junit.jupiter.api.Test;
 
 class TestTurn {
 	
-	Turn turn = new Turn();
-	Roll roll;
-	Roll roll2;
+	private Turn turn = new Turn();
+	private Roll roll;
+	private Roll roll2;
 	
 	@BeforeEach
 	void setUp()
@@ -23,33 +23,33 @@ class TestTurn {
 	}
 
 	@Test
-	void test_Turn_Constructor() 
+	void testTurnConstructor() 
 	{
 		assertEquals(turn.getClass().getSimpleName(), "Turn");
 	}
 
 	@Test
-	void test_set_score()
+	void testSetScore()
 	{
 		turn.setScore(666);
 		assertEquals(turn.getScore(), 666);
 	}
 	
 	@Test
-	void test_get_score()
+	void testGetScore()
 	{
 		turn.setScore(1122);
 		assertEquals(turn.getScore(), 1122);
 	}
 	
 	@Test
-	void test_boolean_is_skunked()
+	void testBooleanIsSkunked()
 	{
 		assertFalse(turn.isSkunked());
 	}
 	
 	@Test
-	void test_add_roll()
+	void testAddRoll()
 	{
 		Die die1 = new CrookedDie3(); //Rolls a 3
 		Die die2 = new CrookedDie3(); //Rolls a 3
@@ -63,7 +63,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void test_get_last_roll()
+	void testGetLastRoll()
 	{
 		Die die1 = new CrookedDie3(); //Rolls a 3
 		Die die2 = new CrookedDie2(); //Rolls a 2
@@ -76,7 +76,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void test_add_score()
+	void testAddScore()
 	{
 		Die die1 = new CrookedDie3(); //Rolls a 3
 		Die die2 = new CrookedDie2(); //Rolls a 2
@@ -90,7 +90,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void test_get_turn_rolls()
+	void testGetTurnRoll()
 	{
 		Die die1 = new CrookedDie1(); //Rolls a 1
 		Die die2 = new CrookedDie2(); //Rolls a 2
@@ -114,7 +114,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void test_get_turn_penalty()
+	void testGetTurnPenalty()
 	{
 		Die die1 = new CrookedDie1(); //Rolls a 1
 		Die die2 = new CrookedDie1(); //Rolls a 1
@@ -127,7 +127,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void outcome_single_skunk() {
+	void outcomeSingleSkunk() {
 		
 		Die die1 = new CrookedDie1();
 		Die die2 = new CrookedDie3();
@@ -149,7 +149,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void outcome_deuce_skunk() {
+	void outcomeDeuceSkunk() {
 		
 		Die die1 = new CrookedDie1();
 		Die die2 = new CrookedDie2();
@@ -172,7 +172,7 @@ class TestTurn {
 	}
 	
 	@Test
-	void outcome_double_skunk() {
+	void outcomeDoubleSkunk() {
 		
 		Die die1 = new CrookedDie1();
 		Die die2 = new CrookedDie1();
@@ -186,7 +186,7 @@ class TestTurn {
 	}
 	
 	@Test
-	public void score_accumulation()
+	void testScoreAccumulation()
 	{
 		Turn turn = new Turn();
 		
@@ -203,7 +203,7 @@ class TestTurn {
 	}
 	
 	@Test
-	public void turn_to_string()
+	void testTurnToString()
 	{
 		Turn turn = new Turn();
 		
@@ -212,7 +212,7 @@ class TestTurn {
 	}
 	
 	@Test
-	public void get_turn_rolls()
+	void testGetTurnRolls()
 	{
 		Turn turn = new Turn();
 		

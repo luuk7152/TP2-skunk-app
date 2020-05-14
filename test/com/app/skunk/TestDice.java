@@ -13,16 +13,16 @@ class TestDice {
 
 	private Dice dice;
 	
-	List<Integer> validDieValues = Arrays.asList(1,2,3,4,5,6);
-	List<Integer> validDiceValues = Arrays.asList(2,3,4,5,6,7,8,9,10,11,12);
+	private List<Integer> validDieValues = Arrays.asList(1,2,3,4,5,6);
+	private List<Integer> validDiceValues = Arrays.asList(2,3,4,5,6,7,8,9,10,11,12);
 	
 	@BeforeEach
-    public void setUp() {
+    void setUp() {
 		dice = new Dice();
     }
 	
 	@Test
-	public void testDiceConstructor() 
+	void testDiceConstructor() 
 	{
 		Die die1 = new Die();
 		Die die2 = new Die();
@@ -33,7 +33,7 @@ class TestDice {
 	}
 	
 	@Test
-	public void testGetDie() 
+	void testGetDie() 
 	{
 		Object die1 = dice.getDie1();
 		Object die2 = dice.getDie2();
@@ -44,7 +44,7 @@ class TestDice {
 	}
 	
 	@Test
-	public void testGetDieRoll() 
+	void testGetDieRoll() 
 	{
 		dice.roll();
 		int die1roll = dice.getDie1Roll();
@@ -56,7 +56,7 @@ class TestDice {
 	
 	
 	@Test
-	public void testGetLastRoll() 
+	void testGetLastRoll() 
 	{
 		dice.roll();
 		int roll = dice.getLastRoll();
@@ -65,7 +65,7 @@ class TestDice {
 	}
 	
 	@Test
-	public void testGenerateRandomNumberBetween2And12()
+	void testGenerateRandomNumberBetween2And12()
 	{
 		for (int i = 1; i < 100000; i++) {
 			
@@ -77,7 +77,7 @@ class TestDice {
 	}
 	
 	@Test
-	public void testDisplayDicetoString() 
+	void testDisplayDicetoString() 
 	{
 		dice.roll();	
 		assertTrue( dice.toString().equals("Dice Roll: " + dice.getLastRoll() + " => " + dice.getDie1Roll() + " + " + dice.getDie2Roll()) );
