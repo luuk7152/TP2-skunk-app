@@ -7,10 +7,20 @@ public class Turn {
 	private ArrayList<Roll> turnRolls;
 	
 	
-//	public Turn()
-//	{
-//		
-//	}
+	public Turn()
+	{
+		this.turnRolls = new ArrayList<Roll>();
+		this.skunked = false;
+	}
 	
+	//getters and setters, baby!
+	public void setScore(int score)
+	{
+
+	}
 	
+	public void getScore()
+	{
+
+	}
 }
