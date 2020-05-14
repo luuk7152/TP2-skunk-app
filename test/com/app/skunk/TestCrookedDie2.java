@@ -11,7 +11,7 @@ public class TestCrookedDie2 {
 	//getLastRoll
 	
 	@Test
-	void test_Get_Last_Roll_Cr_Die2()
+	void testGetLastRollCrDie2()
 	{
 		crDie = new CrookedDie2();
 		assertEquals(crDie.getLastRoll(), 2);
@@ -19,7 +19,7 @@ public class TestCrookedDie2 {
 	}
 	
 	@Test
-	void test_To_String_Cr_Die2()
+	void testToStringCrDie2()
 	{
 		crDie = new CrookedDie2();
 		assertEquals(crDie.toString(), "A CrookedDie2 always rolling 2");

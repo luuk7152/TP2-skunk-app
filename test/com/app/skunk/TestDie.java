@@ -21,7 +21,7 @@ public class TestDie {
     }
 	
 	@Test
-	public void test_get_last_roll() 
+	public void testGetLastRoll() 
 	{
 		die.roll();
 		int roll = die.getLastRoll();
@@ -30,7 +30,7 @@ public class TestDie {
 	}
 	
 	@Test
-	public void test_generate_random_number_between_1_and_6()
+	public void testGenerateRandomNumberBetween1And6()
 	{	
 		for (int i = 1; i < 100000; i++) {
 			
@@ -42,7 +42,7 @@ public class TestDie {
 	}
 	
 	@Test
-	public void test_display_die_toString() 
+	public void testDisplayDieToString() 
 	{
 		die.roll();
 		int roll = die.getLastRoll();
