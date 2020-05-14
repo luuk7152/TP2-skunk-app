@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
@@ -107,11 +108,18 @@ class TestTurn {
 		turn = new Turn(testRolls);
 		
 		assertEquals(turn.getTurnRolls(), testRolls);
-		
-		
-		
-		
-		
 	}
 	
+	@Test
+	void test_get_turn_penalty()
+	{
+		Die die1 = new CrookedDie1(); //Rolls a 1
+		Die die2 = new CrookedDie1(); //Rolls a 1
+		
+		Dice dice = new Dice(die1, die2);
+		roll = new Roll(dice);  //total roll 2
+		turn.addRoll(roll);
+		
+		assertEquals(turn.getPenalty(), 4);
+	}
 }

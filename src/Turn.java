@@ -54,4 +54,34 @@ public class Turn {
 	{
 		return this.turnRolls;
 	}
+	
+	public int getPenalty()
+	{
+		return this.getLastRoll().getPenalty();
+	}
+	
+	//Methods, yo.
+	public void roll()
+	{
+		Roll roll = new Roll();
+		
+		addRoll(roll);
+		addScore(roll);
+		
+		skunked = roll.isDoubleSkunk() || roll.isDeuceSkunk() || roll.isSingleSkunk();
+	}
+	
+	// roll with a predefined set of die
+	public void roll(Dice dice)
+	{
+		Roll roll = new Roll(dice);
+		
+		addRoll(roll);
+		addScore(roll);
+		
+		this.skunked = roll.isDoubleSkunk() || roll.isDeuceSkunk() || roll.isSingleSkunk();
+	}
+	
+	
+	
 }

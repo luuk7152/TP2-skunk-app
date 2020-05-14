@@ -10,7 +10,7 @@ public class Roll {
 		this.score = dice.getLastRoll();
 	}
 	
-	Roll(Dice dice) 
+	Roll(Dice dice) //for testing with crooked dice
 	{
 		this.dice = dice;
 		this.dice.roll();
