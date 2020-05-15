@@ -17,6 +17,24 @@ public class TestTournament {
     }
 	
 	@Test
+	public void testConstructors()
+	{
+		int size = 50;
+		
+		ArrayList<Player> players = new ArrayList<Player>();
+		
+		for (int i = 0; i < size; i++) {
+			String name = Integer.toString(i);
+			Player player = new Player(name);
+			players.add(player);
+        }
+		
+		tournament = new Tournament(players);
+		
+		assertEquals(tournament.getPlayers().size(), size);
+	}
+	
+	@Test
 	public void testSetPlayers()
 	{
 		int size = 50;
