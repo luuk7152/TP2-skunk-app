@@ -6,5 +6,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="/Users/rfookune/eclipse/seis635/SkunkProject2/lib/stdlib.jar"/>
 	<classpathentry kind="lib" path="/Users/rfookune/eclipse/seis635/SkunkProject2/lib/stdlib-package.jar"/>
+	<classpathentry kind="lib" path="D:/SkunkFinal/TP2-skunk-app/lib/stdlib.jar"/>
+	<classpathentry kind="lib" path="D:/SkunkFinal/TP2-skunk-app/lib/stdlib-package.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,8 +1,7 @@
 package com.app.skunk;
 
 import java.util.Scanner;
-
-import edu.princeton.cs.introcs.StdOut;
+import edu.princeton.cs.introcs.*;
 
 public class Interface {
 
