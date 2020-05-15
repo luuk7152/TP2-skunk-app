@@ -117,6 +117,10 @@ public class TestTournament {
 		Game game3 = new Game(players);
 		tournament.addGame(game3);
 		game3.setWinner(player3);
+		
+		assertEquals(tournament.getGames().get(0).getWinner().getName(), name1);
+		assertEquals(tournament.getGames().get(1).getWinner().getName(), name2);
+		assertEquals(tournament.getGames().get(2).getWinner().getName(), name3);
 	}
 	
 	@Test
