@@ -118,4 +118,31 @@ public class TestTournament {
 		tournament.addGame(game3);
 		game3.setWinner(player3);
 	}
+	
+	@Test
+	public void testResetPlayerScore()
+	{
+		String name1 = "John Doe";
+		String name2 = "Mary Johnson";
+		
+		Player player1 = new Player(name1);
+		player1.setScore(100);
+		Player player2 = new Player(name2);
+		player2.setScore(50);
+		
+		ArrayList<Player> players = new ArrayList<Player>();
+		
+		players.add(player1);
+		players.add(player2);
+		
+		Tournament tournament = new Tournament(players);
+		
+		Game game1 = new Game(tournament.getPlayers());
+		tournament.addGame(game1);
+		
+		tournament.resetPlayersScore();
+		
+		assertEquals(player1.getScore(), 0);
+		assertEquals(player2.getScore(), 0);
+	}
 }

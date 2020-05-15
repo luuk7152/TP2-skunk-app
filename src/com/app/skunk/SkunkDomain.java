@@ -7,16 +7,16 @@ public class SkunkDomain {
 
 	public Interface ui;
 	
-	private ArrayList<Player> players;
+	private Tournament tournament;
 	private int kitty;
 	
-	private int TARGET_SCORE = 100;
+	private int TARGET_SCORE = 20;
 	
 	public SkunkDomain(Interface ui)
 	{
 		this.ui = ui;
 		this.kitty = 0;
-		this.players = new ArrayList<Player>();
+		this.tournament = new Tournament();
 	}
 	
 	
@@ -25,49 +25,74 @@ public class SkunkDomain {
 	{
 		ui.welcomeMessage();
 		
-		this.setupPlayers();
+		ArrayList<Player> players = this.setupPlayers();
+
+		tournament.setPlayers(players);
+		Boolean tournamentEnded = false;
 		
-		//start a new game
-		Game game = new Game(this.players);
-		
-		Boolean gameEnded = false;
-		Player currentPlayer = null;
-		
-		while (!gameEnded) {
-			currentPlayer = game.getCurrentPlayer();
-			gameEnded = this.playATurn(game, currentPlayer, false);
-			game.setNextPlayer();
+		//start a tournament
+		while (!tournamentEnded) {
+			
+			//start a new game
+			Game game = new Game(tournament.getPlayers());
+
+			tournament.addGame(game);
+			ui.gameStartedMessage(tournament.getGames().size());
+			
+			Boolean gameEnded = false;
+			Player currentPlayer = null;
+			
+			while (!gameEnded) {
+				currentPlayer = game.getCurrentPlayer();
+				gameEnded = this.playATurn(game, currentPlayer, false);
+				game.setNextPlayer();
+			}
+			
+			
+			// game ended - allow one more turn for each non winner
+			while (game.getCurrentPlayer() != game.getFirstWinner()) {
+				currentPlayer = game.getCurrentPlayer();
+				this.playATurn(game, currentPlayer, true);
+				game.setNextPlayer();
+			}
+			
+			Player winner = game.getWinner();
+			winner.setChipCount(winner.getChipCount() + kitty);
+			kitty = 0;
+			
+			ui.displayWinnerMessage(winner);
+			
+			//game ended
+			ui.displayGameEndedMessage();
+			//option to show current standing
+			showStandingSummaryOption();
+			
+			Boolean playAgain = playAnotherGame();
+			if(!playAgain) {
+				tournamentEnded = true;
+			} else {
+				tournament.resetPlayersScore();
+			}
 		}
 		
-		
-		// game ended - allow one more turn for each non winner
-		while (game.getCurrentPlayer() != game.getFirstWinner()) {
-			currentPlayer = game.getCurrentPlayer();
-			this.playATurn(game, currentPlayer, true);
-			game.setNextPlayer();
-		}
-		
-		Player winner = game.getWinner();
-		winner.setChipCount(winner.getChipCount() + kitty);
-		kitty = 0;
-		
-		ui.displayWinnerMessage(winner);
-		
-		// Game ended
-		ui.displayGameEndedMessage();
+		ui.displayTournamentEndedMessage();
 	}
 	
-	private void setupPlayers()
+	
+	//setup players
+	private ArrayList<Player> setupPlayers()
 	{
 		Integer playerCount = ui.promptPlayerCount();
 		
+		ArrayList<Player> players = new ArrayList<Player>();
+		
 		for (int index = 1; index <= playerCount; index++) {
-			
 			String playerName = ui.promptPlayerName(index);
 			Player player = new Player(playerName);
-			
-			this.players.add(player);
+			players.add(player);
 		}
+		
+		return players;
 	}
 	
 	private Boolean playATurn(Game game, Player currentPlayer, Boolean lastTurn)
@@ -185,4 +210,62 @@ public class SkunkDomain {
 			
 		}
 	}
+	
+	private Boolean playAnotherGame()
+	{
+		Boolean playAgain = true;
+		
+		Boolean validInput = false;
+		while (!validInput) {
+			
+			String continueTournamentDecision = ui.promptContinueTournament();
+		
+			switch (continueTournamentDecision)
+			{
+				case "y":
+					playAgain = true;
+					validInput = true;
+					break;
+					
+				case "n":
+					playAgain = false;
+					validInput = true;
+					break;
+				
+				default: 
+					ui.invalidInputMessage(); //handle invalid user input
+					break;
+			}
+			
+		}
+		
+		return playAgain;
+	}
+	
+	private void showStandingSummaryOption()
+	{
+		Boolean validSummaryInput = false;
+		
+		while (!validSummaryInput) {
+			
+			String showSummary = ui.promptShowStandingSummary();
+		
+			switch (showSummary)
+			{
+				case "y":
+					ui.standingReport(tournament);
+					validSummaryInput = true;
+					break;
+					
+				case "n":
+					validSummaryInput = true;
+					break;
+				
+				default: 
+					ui.invalidInputMessage(); //handle invalid user input
+					break;
+			}
+			
+		}
+	} 
 }

@@ -41,5 +41,12 @@ public class Tournament {
 		return this.games;
 	}
 	
+	//methods
+	public void resetPlayersScore()
+	{
+		for (Player player : players) {
+			player.setScore(0);
+		}
+	}
 	
 }

@@ -49,6 +49,27 @@ public class Interface {
 		return input;
 	}
 	
+	public String promptShowStandingSummary()
+	{
+		StdOut.println("Do you wish to see the current standing and game/s summary? (Y/N)");
+		
+		String input = scan.nextLine().toLowerCase();
+		StdOut.println("");
+		
+		return input;
+	}
+	
+	public String promptContinueTournament()
+	{
+		StdOut.println("");
+		StdOut.println("Do you wish to play another game? (Y/N)");
+		
+		String input = scan.nextLine().toLowerCase();
+		StdOut.println("");
+		
+		return input;
+	}
+	
 	
 	//UI reports
 	public void turnRollReport(Player player, Turn turn) 
@@ -69,11 +90,39 @@ public class Interface {
 		StdOut.println("");
 	}
 	
+	public void standingReport(Tournament tournament) 
+	{
+		StdOut.println("------------------------");
+		
+		StdOut.println("Game Summary: \n");
+		
+		for (int i=0; i < tournament.getGames().size(); i++) {
+			Game game = tournament.getGames().get(i);
+			StdOut.println(game.getWinner() .getName()+ " won game " + Integer.toString(i+1) + ".");
+		}
+		
+		StdOut.println("");
+		
+		StdOut.println("Player Standing Summary: \n");
+		for (Player player : tournament.getPlayers()) {
+			StdOut.println(player.getName() + " has a chip count of " + player.getChipCount() + ".");
+		}
+		
+		StdOut.println("------------------------");
+		StdOut.println("");
+		StdOut.println("");
+	}
+	
 	
 	//UI output messages
 	public void welcomeMessage()
 	{
 		StdOut.println("Welcome to Skunk! \n");
+	}
+	
+	public void gameStartedMessage(int index)
+	{
+		StdOut.println("GAME " + Integer.toString(index) + " STARTED! \n");
 	}
 	
 	public void turnStartedMessage(Player player)
@@ -152,8 +201,11 @@ public class Interface {
 	
 	public void displayGameEndedMessage()
 	{
-		StdOut.println("Game of skunked ended. \n");
+		StdOut.println("This game of skunked is no over. \n");
 	}
 	
-	
+	public void displayTournamentEndedMessage()
+	{
+		StdOut.println("Skunk Tournament ended! Thanks for playing with us. \n");
+	}
 }
