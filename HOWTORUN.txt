@@ -13,23 +13,21 @@
  | |  | | (_) \ V  V /  | || (_) | | |  | |_| | | | |_ 
  |_|  |_|\___/ \_/\_/    \__\___/  |_|   \__,_|_| |_(_)
                                                        
-                                                       
-Import TP2-skunk-app into Eclipse
+                                
+Import into Eclipse
 
 Run SkunkApp as Java Application
+
 *********************************************************************************
-*   Enter an ingeger for number of players
+*   Enter the number of players
 *
-*   Players enter their names
+*   Enter each player's name
 *
-*   Players turns follow the order their names were entered
+*   During each turn, the player will have the option to Roll or Pass (Enter R or P)
 *
-*     Each Turn
-*	Roll or Pass? (Enter R or P)
-*	Turn Summary (Enter Y or N)
-*     Once victory conditions are met(score of >=100)
-*	View current Standings (Enter Y or N)
-*	Play another game? (Enter Y or N)
+*   At the end of each turn, the player will have the option to show a summary of dice rolls for the turn (Enter Y or N)
 *
-*   Next game continues and chip counts carry over for each consecutive game.
+*   At the end of each game, players will have the option to view the current tournament standing (Enter Y or N)
+*
+*   At the end of each game, players will have the option to play another game as part of the tournament (Enter Y or N)
 ********************************************************************************
