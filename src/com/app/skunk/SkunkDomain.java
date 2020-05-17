@@ -10,7 +10,7 @@ public class SkunkDomain {
 	private Tournament tournament;
 	private int kitty;
 	
-	private int TARGET_SCORE = 20;
+	private int TARGET_SCORE = 100;
 	
 	public SkunkDomain(Interface ui)
 	{
