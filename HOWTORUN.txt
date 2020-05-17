@@ -1,5 +1,33 @@
-Include a text file HOWTORUN.txt in your repository which describes the details of how to run your submitted code and unit tests - including (if possible) the specific user input that can be used in demonstrating the correctness of your implementation. 
+  ___________                 __        _____                  ________     _______   
+ /   _____/  | ____ __  ____ |  | __   /  _  \ ______ ______   \_____  \    \   _  \  
+ \_____  \|  |/ /  |  \/    \|  |/ /  /  /_\  \\____ \\____ \   /  ____/    /  /_\  \ 
+ /        \    <|  |  /   |  \    <  /    |    \  |_> >  |_> > /       \    \  \_/   \
+/_______  /__|_ \____/|___|  /__|_ \ \____|__  /   __/|   __/  \_______ \ /\ \_____  /
+        \/     \/          \/     \/         \/|__|   |__|             \/ \/       \/ 
 
 
-I think we give instructions for importing into Eclipse, then Run as Java Application?
-Mention specifically what inputs are required at each step since we don't have handling for invalid inputs.
+  _    _                 _                             
+ | |  | |               | |                          _ 
+ | |__| | _____      __ | |_ ___    _ __ _   _ _ __ (_)
+ |  __  |/ _ \ \ /\ / / | __/ _ \  | '__| | | | '_ \   
+ | |  | | (_) \ V  V /  | || (_) | | |  | |_| | | | |_ 
+ |_|  |_|\___/ \_/\_/    \__\___/  |_|   \__,_|_| |_(_)
+                                                       
+                                
+Import into Eclipse
+
+Run SkunkApp as Java Application
+
+*********************************************************************************
+*   Enter the number of players
+*
+*   Enter each player's name
+*
+*   During each turn, the player will have the option to Roll or Pass (Enter R or P)
+*
+*   At the end of each turn, the player will have the option to show a summary of dice rolls for the turn (Enter Y or N)
+*
+*   At the end of each game, players will have the option to view the current tournament standing (Enter Y or N)
+*
+*   At the end of each game, players will have the option to play another game as part of the tournament (Enter Y or N)
+********************************************************************************
