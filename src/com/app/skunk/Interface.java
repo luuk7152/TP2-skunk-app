@@ -1,59 +1,47 @@
 package com.app.skunk;
 
-import java.util.Scanner;
-
+import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
 public class Interface {
-
-	private Scanner scan = new Scanner(System.in);
 	
 	//UI inputs
 	public Integer promptPlayerCount()
 	{
 		StdOut.println("How many players will join the game?");
-		
-		Integer count = Integer.parseInt(scan.nextLine());
+		Integer count = Integer.parseInt(StdIn.readLine());
 		StdOut.println("");
-		
 		return count;
 	}
 	
 	public String promptPlayerName(int index)
 	{
 		playerNameMessage(index);
-		
-		String input = scan.nextLine();
+		String input = StdIn.readLine();
 		StdOut.println("");
-		
 		return input;
 	}
 	
 	public String promptRollOrPass(String playerName)
 	{
 		rollOrPassMessage(playerName);
-		
-		String input = scan.nextLine().toLowerCase();
+		String input = StdIn.readLine().toLowerCase();
 		StdOut.println("");
-		
 		return input;
 	}
 	
 	public String promptShowTurnSummary()
 	{
-		StdOut.println("Do you wish to see a summary of this turn? (Y/N)");
-		
-		String input = scan.nextLine().toLowerCase();
+		StdOut.println("Do you wish to see a summary of your rolls for this turn? (Y/N)");
+		String input = StdIn.readLine().toLowerCase();
 		StdOut.println("");
-		
 		return input;
 	}
 	
 	public String promptShowStandingSummary()
 	{
 		StdOut.println("Do you wish to see the current standing and game/s summary? (Y/N)");
-		
-		String input = scan.nextLine().toLowerCase();
+		String input = StdIn.readLine().toLowerCase();
 		StdOut.println("");
 		
 		return input;
@@ -64,7 +52,7 @@ public class Interface {
 		StdOut.println("");
 		StdOut.println("Do you wish to play another game? (Y/N)");
 		
-		String input = scan.nextLine().toLowerCase();
+		String input = StdIn.readLine().toLowerCase();
 		StdOut.println("");
 		
 		return input;
@@ -80,18 +68,32 @@ public class Interface {
 	
 	public void turnReport(Player player, Turn turn) 
 	{
+		StdOut.println("");
 		StdOut.println("------------------------");
-		StdOut.println("Here is a summary of your rolls for this turn " + player.getName() + ":");
+		StdOut.println("Turn rolls for " + player.getName() + ":");
 		turn.getTurnRolls().forEach((Roll roll) -> StdOut.println(roll.toString()));
 		StdOut.println("Your final turn score is " + turn.getScore());
-		StdOut.println("Your current game score is " + player.getScore());
 		StdOut.println("------------------------");
+		StdOut.println("");
+		
+	}
+	
+	public void gameReport(Game game)
+	{
+		StdOut.println("");
+		StdOut.println("Player | Game Score | Chip Count");
+		StdOut.println("------------------------------------");
+		for (Player player : game.getPlayers()) {
+			StdOut.println(player.getName() + "  |  " + player.getScore() + "  |  " + player.getChipCount());
+		}
+		StdOut.println("------------------------------------");
 		StdOut.println("");
 		StdOut.println("");
 	}
 	
 	public void standingReport(Tournament tournament) 
 	{
+		StdOut.println("");
 		StdOut.println("------------------------");
 		
 		StdOut.println("Game Summary: \n");
@@ -107,7 +109,6 @@ public class Interface {
 		for (Player player : tournament.getPlayers()) {
 			StdOut.println(player.getName() + " has a chip count of " + player.getChipCount() + ".");
 		}
-		
 		StdOut.println("------------------------");
 		StdOut.println("");
 		StdOut.println("");
@@ -122,6 +123,7 @@ public class Interface {
 	
 	public void gameStartedMessage(int index)
 	{
+		StdOut.println("");
 		StdOut.println("GAME " + Integer.toString(index) + " STARTED! \n");
 	}
 	
@@ -132,7 +134,7 @@ public class Interface {
 	
 	public void lastTurnStartedMessage(Player player)
 	{
-		StdOut.println("It's your last turn " + player.getName() + ". \n");
+		StdOut.println("It's your LAST turn " + player.getName() + ". \n");
 	}
 	
 	public void singleSkunkMessage()
@@ -175,13 +177,12 @@ public class Interface {
 	
 	public void playerNameMessage(int index)
 	{
-		StdOut.println("Enter name for player " + index + " and press ENTER.");
+		StdOut.println("Enter the name of player " + index + " and press ENTER.");
 	}
 	
 	public void rollOrPassMessage(String playerName)
 	{
-		StdOut.println(playerName + ", would you like to ROLL or PASS?");
-		StdOut.println("Type R to roll or P to pass and press ENTER.");
+		StdOut.println(playerName + ", would you like to ROLL or PASS? (R/P)");
 	}
 	
 	public void endTurnMessage(String playerName)
@@ -196,7 +197,7 @@ public class Interface {
 	
 	public void skunkRolledMessage()
 	{
-		StdOut.println("Too bad! You rolled a skunk :( \n");
+		StdOut.println("Too bad! You rolled a skunk :(");
 	}
 	
 	public void displayGameEndedMessage()
@@ -206,6 +207,8 @@ public class Interface {
 	
 	public void displayTournamentEndedMessage()
 	{
+		StdOut.println("");
+		StdOut.println("");
 		StdOut.println("Skunk Tournament ended! Thanks for playing with us. \n");
 	}
 }

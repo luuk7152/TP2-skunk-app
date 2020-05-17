@@ -45,14 +45,17 @@ public class SkunkDomain {
 			while (!gameEnded) {
 				currentPlayer = game.getCurrentPlayer();
 				gameEnded = this.playATurn(game, currentPlayer, false);
+				ui.gameReport(game);
 				game.setNextPlayer();
 			}
-			
 			
 			// game ended - allow one more turn for each non winner
 			while (game.getCurrentPlayer() != game.getFirstWinner()) {
 				currentPlayer = game.getCurrentPlayer();
+				
 				this.playATurn(game, currentPlayer, true);
+				ui.gameReport(game);
+				
 				game.setNextPlayer();
 			}
 			
@@ -105,8 +108,6 @@ public class SkunkDomain {
 		
 		if (lastTurn) {
 			ui.lastTurnStartedMessage(currentPlayer);
-		} else {
-			ui.turnStartedMessage(currentPlayer);
 		}
 		
 		String playerDecision = "";
