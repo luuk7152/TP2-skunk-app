@@ -81,8 +81,9 @@ public class Interface {
 	public void gameReport(Game game)
 	{
 		StdOut.println("");
-		StdOut.println("Player | Game Score | Chip Count");
+		StdOut.println("GAME REPORT");
 		StdOut.println("------------------------------------");
+		StdOut.println("Player | Game Score | Chip Count");
 		for (Player player : game.getPlayers()) {
 			StdOut.println(player.getName() + "  |  " + player.getScore() + "  |  " + player.getChipCount());
 		}
@@ -94,10 +95,10 @@ public class Interface {
 	public void standingReport(Tournament tournament) 
 	{
 		StdOut.println("");
+		StdOut.println("TOURNAMENT STANDING");
 		StdOut.println("------------------------");
 		
-		StdOut.println("Game Summary: \n");
-		
+		StdOut.println("Game Summary:");
 		for (int i=0; i < tournament.getGames().size(); i++) {
 			Game game = tournament.getGames().get(i);
 			StdOut.println(game.getWinner() .getName()+ " won game " + Integer.toString(i+1) + ".");
@@ -105,7 +106,7 @@ public class Interface {
 		
 		StdOut.println("");
 		
-		StdOut.println("Player Standing Summary: \n");
+		StdOut.println("Player Standing Summary:");
 		for (Player player : tournament.getPlayers()) {
 			StdOut.println(player.getName() + " has a chip count of " + player.getChipCount() + ".");
 		}
